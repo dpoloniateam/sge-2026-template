@@ -84,3 +84,7 @@ python -m agent.rag ask "Como se regista uma devolução?"
 | `DeploymentNotFound` ao criar embeddings | o recurso Azure OpenAI só tem a implementação do modelo de chat | crie a implementação `text-embedding-3-small` (Foundry → Deployments; em várias regiões só existe com SKU GlobalStandard) ou ponha em `EMBED_MODEL` o nome de uma implementação de embeddings existente |
 | «O modelo não chamou a ferramenta (finish_reason=length)» | modelos de raciocínio (gpt-5-nano, gpt-5-mini) gastam o limite de saída a pensar | o adaptador já multiplica o limite por 4 e usa `REASONING_EFFORT=low`; para lotes grandes reduza `--limit` ou aumente `max_tokens` em `agent/llm.py` |
 | Codespace apagado | 30 dias sem uso | restaure a última cópia com `./scripts/restore.sh` |
+
+## Licença
+
+Este template é disponibilizado sob a licença [Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.pt). © 2026 Daniel Polónia, ISCA, Universidade de Aveiro. Pode copiar, adaptar e redistribuir, incluindo para fins comerciais, desde que indique a autoria e a origem (ver `LICENSE`).
