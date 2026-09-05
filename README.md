@@ -63,7 +63,11 @@ python -m agent.rag build docs/                # indexa os .md/.txt em docs/ (SO
 python -m agent.rag ask "Como se regista uma devolução?"
 ```
 
-## 9. Regras da UC
+## 9. Templates de consultoria
+
+Os onze templates das entregas estão em [`docs/templates/`](docs/templates/): diagnóstico AS-IS, requisitos, matriz de selecção e TCO, plano de projecto, relatório de estado, pedido de alteração, guião de UAT, pacote de handover, SOP, declaração de uso de IA e registo de consultor. Preencha-os aqui e exporte em PDF para o Moodle. O índice com o que cada um serve está em `docs/templates/README.md`.
+
+## 10. Regras da UC
 
 1. Só dados sintéticos: nenhum nome, email ou telefone de pessoas reais, nem no Odoo nem nos prompts (Referencial IA da UA, 3.5).
 2. Segredos só no `.env`; se uma chave for exposta, revogue-a no mesmo dia.
@@ -71,7 +75,7 @@ python -m agent.rag ask "Como se regista uma devolução?"
 4. Uso de IA declarado em M1, M3 e no portefólio: ferramenta, tarefas, o que foi aceite ou rejeitado e como foi verificado.
 5. Cópia de segurança semanal guardada fora da VM.
 
-## 10. Problemas frequentes
+## 11. Problemas frequentes
 
 | Sintoma | Causa provável | O que fazer |
 |---|---|---|
