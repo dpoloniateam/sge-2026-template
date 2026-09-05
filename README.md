@@ -8,7 +8,7 @@ Repositório template da UC Sistemas de Gestão Empresarial (CTeSP ICO, ISCA-UA)
 |---|---|---|---|
 | GitHub Student Developer Pack | education.github.com/pack (com o email @ua.pt) | GitHub Pro, Copilot Student, Codespaces (180 core-horas/mês), Azure for Students | pedir a 14 Set; aprovação em 2-3 dias, por vezes semanas |
 | Azure for Students | azure.microsoft.com/free/students | 100 USD/ano, sem cartão; VM e Azure OpenAI (opção a) | 14 Set; se falhar até 25 Set, a equipa usa a opção b |
-| Base Odoo Online educativa | odoo.com/trial?edu — nome da base a começar por `edu-` (ex.: `edu-sge26-eq01`) | Odoo Enterprise gratuito durante 24 meses; é a base «de produção» do cliente | criar na 1.ª aula; abrir pelo menos uma vez cada 3 meses |
+| Base Odoo Online educativa | odoo.com/trial?edu — nome da base a começar por `edu-` (ex.: `edu-sge26-eq01`) | Odoo Enterprise gratuito durante 24 meses; é a base «de produção» do cliente | criar na 1.ª aula; abrir pelo menos uma vez cada 3 meses; **fechar o registo livre logo a seguir**: Definições, Website, bloco Website Identification, Customer Account, escolher «On invitation» e gravar em Save |
 | Google AI Studio | aistudio.google.com | chave gratuita para o Gemini (opção b do agente); só dados sintéticos | 18 Set |
 | O'Reilly Learning | learning.oreilly.com (entrar com o email @ua.pt) | bibliografia da UC | 18 Set |
 
