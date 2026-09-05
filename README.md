@@ -1,6 +1,6 @@
 # SGE 2026-27 — repositório da equipa (Odoo + agente de IA)
 
-Repositório template da UC Sistemas de Gestão Empresarial (CTeSP ICO, ISCA-UA). Cada equipa cria o seu a partir deste modelo («Use this template») e trabalha aqui durante o semestre: código do agente, cópias de segurança da base Odoo Community, documentos do cliente para o assistente RAG e registos de trabalho. Nunca guarde aqui segredos (chaves) nem dados pessoais reais.
+Repositório template da UC Sistemas de Gestão Empresarial (CTeSP ICO, ISCA-UA). Endereço: https://github.com/dpoloniateam/sge-2026-template (público). Cada equipa cria o seu a partir deste modelo (botão «Use this template») e trabalha aqui durante o semestre: código do agente, cópias de segurança da base Odoo Community, documentos do cliente para o assistente RAG e registos de trabalho. Nunca guarde aqui segredos (chaves) nem dados pessoais reais.
 
 ## 1. Contas (semana de 14 Set)
 
