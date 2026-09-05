@@ -1,0 +1,30 @@
+# Odoo 19 Community + PostgreSQL 16 para a UC de Sistemas de Gestão Empresarial (ISCA-UA, 2026-27).
+# Arranque: docker compose up -d   |  primeira base: ./scripts/init_db.sh   |  cópias: ./scripts/backup.sh
+services:
+  web:
+    image: odoo:19.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    restart: unless-stopped
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+volumes:
+  odoo-web-data:
+  odoo-db-data:

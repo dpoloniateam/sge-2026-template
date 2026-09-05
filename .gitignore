@@ -1,0 +1,7 @@
+.env
+backups/*.dump
+backups/*.tgz
+rag_index.json
+__pycache__/
+*.pyc
+.venv/

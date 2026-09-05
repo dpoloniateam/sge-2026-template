@@ -1,0 +1,8 @@
+#cloud-config
+# Instala o Docker na VM e prepara o utilizador azureuser. O repositório da equipa é clonado manualmente depois do primeiro ssh.
+package_update: true
+packages: [git, curl, ca-certificates]
+runcmd:
+  - curl -fsSL https://get.docker.com | sh
+  - usermod -aG docker azureuser
+  - systemctl enable --now docker
