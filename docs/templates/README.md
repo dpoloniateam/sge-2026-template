@@ -1,6 +1,6 @@
 # Templates de consultoria
 
-Os onze templates que a UC usa nas entregas. Preencha-os aqui, no repositório da equipa, e exporte em PDF para o Moodle.
+Os doze templates que a UC usa nas entregas. Preencha-os aqui, no repositório da equipa, e exporte em PDF para o Moodle.
 Não apague os títulos das secções: as grelhas de correcção seguem-nos.
 
 | Template | Para quê | Onde é pedido |
@@ -16,4 +16,5 @@ Não apague os títulos das secções: as grelhas de correcção seguem-nos.
 | [`T09 SOP procedimento operacional.md`](T09 SOP procedimento operacional.md) | SOP (procedimento operacional) | M3, procedimentos e base do assistente RAG |
 | [`T10 declaracao de uso de IA.md`](T10 declaracao de uso de IA.md) | Declaração de uso de IA (obrigatória em M1, M3 e no portefólio) | M1, M3 e portefólio, obrigatória |
 | [`T11 registo de consultor (portefolio).md`](T11 registo de consultor (portefolio).md) | Registo de consultor (uma página por marco) | portefólio, uma página por marco |
+| [`T12 contrato de integracao e dicionario de dados.md`](T12 contrato de integracao e dicionario de dados.md) | Contrato de integração e dicionário de dados | M3, integração |
 

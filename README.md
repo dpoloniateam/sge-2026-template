@@ -63,11 +63,26 @@ python -m agent.rag build docs/                # indexa os .md/.txt em docs/ (SO
 python -m agent.rag ask "Como se regista uma devolução?"
 ```
 
-## 9. Templates de consultoria
+## 9. Integração: a aplicação externa e o canal por ficheiro
 
-Os onze templates das entregas estão em [`docs/templates/`](docs/templates/): diagnóstico AS-IS, requisitos, matriz de selecção e TCO, plano de projecto, relatório de estado, pedido de alteração, guião de UAT, pacote de handover, SOP, declaração de uso de IA e registo de consultor. Preencha-os aqui e exporte em PDF para o Moodle. O índice com o que cada um serve está em `docs/templates/README.md`.
+O sistema de gestão não vive isolado. Há duas vias de integração, ambas contra sistemas vossos, e ambas são exigidas em M3.
 
-## 10. Regras da UC
+```bash
+python frontend/app.py                 # aplicação externa com base de dados própria, em http://localhost:8000
+python frontend/sync.py                # submissões locais -> leads no CRM
+python frontend/sync.py                # correr outra vez nao deve criar nada: prova de idempotencia
+
+python scripts/import_leads.py exchange/exemplos/leads_sujo.csv    # validacao, duplicados e relatorio de rejeitadas
+python scripts/export_catalogo.py --formato json                   # Odoo -> exchange/out/
+```
+
+A **síncrona** é a aplicação em [`frontend/`](frontend/): tem a sua própria base de dados, grava o pedido localmente e só depois o leva ao CRM. A **assíncrona** é a troca de ficheiros em [`exchange/`](exchange/), validada contra os contratos em `schema/`. O que cada uma garante — idempotência, deduplicação, tratamento de erros, sistema-mestre — está em [`docs/contrato_de_integracao.md`](docs/contrato_de_integracao.md), e o contrato da vossa equipa escreve-se no template T12.
+
+## 10. Templates de consultoria
+
+Os doze templates das entregas estão em [`docs/templates/`](docs/templates/): diagnóstico AS-IS, requisitos, matriz de selecção e TCO, plano de projecto, relatório de estado, pedido de alteração, guião de UAT, pacote de handover, SOP, declaração de uso de IA, registo de consultor e contrato de integração. Preencha-os aqui e exporte em PDF para o Moodle. O índice com o que cada um serve está em `docs/templates/README.md`.
+
+## 11. Regras da UC
 
 1. Só dados sintéticos: nenhum nome, email ou telefone de pessoas reais, nem no Odoo nem nos prompts (Referencial IA da UA, 3.5).
 2. Segredos só no `.env`; se uma chave for exposta, revogue-a no mesmo dia.
@@ -75,7 +90,7 @@ Os onze templates das entregas estão em [`docs/templates/`](docs/templates/): d
 4. Uso de IA declarado em M1, M3 e no portefólio: ferramenta, tarefas, o que foi aceite ou rejeitado e como foi verificado.
 5. Cópia de segurança semanal guardada fora da VM.
 
-## 11. Problemas frequentes
+## 12. Problemas frequentes
 
 | Sintoma | Causa provável | O que fazer |
 |---|---|---|

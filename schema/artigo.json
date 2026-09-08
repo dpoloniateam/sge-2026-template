@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artigo exportado do sistema de gestão para um canal externo",
+  "descricao": "Contrato de saída. O sistema-mestre do artigo é o ERP: quem recebe não o altera, consome-o.",
+  "type": "object",
+  "required": ["referencia", "designacao", "preco"],
+  "additionalProperties": false,
+  "properties": {
+    "referencia": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "designacao": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "familia": { "type": ["string", "null"], "maxLength": 100 },
+    "preco": { "type": "number", "minimum": 0 },
+    "moeda": { "type": "string", "enum": ["EUR"] },
+    "unidade": { "type": ["string", "null"], "maxLength": 20 },
+    "activo": { "type": "boolean" },
+    "actualizado_em": { "type": ["string", "null"] }
+  }
+}

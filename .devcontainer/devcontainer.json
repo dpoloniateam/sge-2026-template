@@ -3,8 +3,11 @@
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
   "hostRequirements": { "cpus": 2, "memory": "8gb" },
-  "forwardPorts": [8069],
-  "portsAttributes": { "8069": { "label": "Odoo", "onAutoForward": "notify" } },
+  "forwardPorts": [8069, 8000],
+  "portsAttributes": {
+    "8069": { "label": "Odoo", "onAutoForward": "notify" },
+    "8000": { "label": "Aplicação externa", "onAutoForward": "notify" }
+  },
   "postCreateCommand": "pip install -r requirements.txt && docker compose up -d",
   "customizations": { "vscode": { "extensions": ["ms-python.python", "GitHub.copilot"] } }
 }

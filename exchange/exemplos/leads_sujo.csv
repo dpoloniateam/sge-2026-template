@@ -1,0 +1,8 @@
+referencia_externa,nome,empresa,email,telefone,mensagem,origem,criado_em
+FEIRA-2026-010,Fernanda Lima,Lima Consultores,fernanda.lima@exemplo.pt,916789012,Quer demonstração.,feira,2026-10-07T09:15:00
+FEIRA-2026-011,,Silva Unipessoal,geral@exemplo.pt,917890123,Sem nome de contacto.,feira,2026-10-07T09:20:00
+FEIRA-2026-012,Gonçalo Pinto,Pinto Transportes,goncalo.pinto,918901234,Email sem domínio.,feira,2026-10-07T09:31:00
+FEIRA-2026-013,Helena Cruz,Cruz Design,helena.cruz@exemplo.pt,91890,Telefone com 5 dígitos.,feira,2026-10-07T09:45:00
+FEIRA-2026-014,Igor Matos,Matos Lda,igor.matos@exemplo.pt,919012345,Origem que não existe no contrato.,newsletter,2026-10-07T10:03:00
+FEIRA-2026-001,Ana Ribeiro,Padaria Ribeiro Lda,ana.ribeiro@exemplo.pt,912345678,Repetição do ficheiro limpo — deve ser vista como duplicada.,feira,2026-10-05T10:12:00
+,Joana Reis,Reis & Reis,joana.reis@exemplo.pt,910123456,Sem referência externa.,feira,2026-10-07T10:30:00

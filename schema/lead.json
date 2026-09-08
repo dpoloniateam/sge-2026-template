@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pedido de contacto trocado com o sistema de gestão",
+  "descricao": "Contrato do canal assíncrono. O que estiver aqui é o que atravessa a fronteira; os nomes internos de cada sistema não interessam ao outro lado.",
+  "type": "object",
+  "required": ["referencia_externa", "nome", "email"],
+  "additionalProperties": false,
+  "properties": {
+    "referencia_externa": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "descricao": "Chave de identificação do lado de quem envia. É o que evita duplicados quando o mesmo ficheiro é importado duas vezes."
+    },
+    "nome": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "empresa": { "type": ["string", "null"], "maxLength": 120 },
+    "email": { "type": "string", "pattern": "^[^@\\s]+@[^@\\s]+\\.[a-zA-Z]{2,}$" },
+    "telefone": { "type": ["string", "null"], "pattern": "^[0-9]{9}$" },
+    "mensagem": { "type": ["string", "null"], "maxLength": 2000 },
+    "origem": { "type": ["string", "null"], "enum": ["site", "feira", "parceiro", "telefone", null] },
+    "criado_em": { "type": ["string", "null"], "descricao": "ISO 8601" }
+  }
+}

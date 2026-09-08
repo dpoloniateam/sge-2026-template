@@ -6,11 +6,11 @@ Inclui: | Exclui (e porquê):
 ## 2. WBS e marcos
 | Pacote de trabalho | Entregável | Responsável | Início | Fim | Marco da UC |
 |---|---|---|---|---|---|
-| 1 Diagnóstico e proposta | dossiê | | 28 Set | 23 Out | M1 |
-| 2 ERP | fluxos e dados | | 23 Out | 30 Out | |
+| 1 Diagnóstico e proposta | dossiê | | 28 Set | 16 Out | M1 |
+| 2 ERP | fluxos e dados | | 16 Out | 30 Out | pitch de devolução de M1 (19 Out) |
 | 3 CRM, agente, conhecimento | | | 2 Nov | 20 Nov | relatório de estado 1 (13 Nov) |
 | 4 Alteração, UAT, handover | | | 27 Nov | 7 Dez | M3 |
-| 5 Defesa | | | 14 Dez | 21 Dez | M4 |
+| 5 Defesa | | | 14 Dez | 18 Dez | M4 |
 
 ## 3. Riscos
 | Id | Risco | Probabilidade (B/M/A) | Impacto (B/M/A) | Mitigação | Dono |

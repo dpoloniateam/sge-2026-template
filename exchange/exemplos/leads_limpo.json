@@ -1,0 +1,22 @@
+[
+  {
+    "referencia_externa": "SITE-2026-201",
+    "nome": "Luís Aparício",
+    "empresa": "Aparício Materiais",
+    "email": "luis.aparicio@exemplo.pt",
+    "telefone": "911223344",
+    "mensagem": "Pedido submetido no site do parceiro.",
+    "origem": "site",
+    "criado_em": "2026-10-08T08:55:00"
+  },
+  {
+    "referencia_externa": "SITE-2026-202",
+    "nome": "Marta Quintas",
+    "empresa": null,
+    "email": "marta.quintas@exemplo.pt",
+    "telefone": null,
+    "mensagem": null,
+    "origem": "site",
+    "criado_em": "2026-10-08T09:10:00"
+  }
+]

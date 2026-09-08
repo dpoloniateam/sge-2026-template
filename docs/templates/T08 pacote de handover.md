@@ -8,3 +8,4 @@
 6. TCO revisto: custos reais do semestre e projecção a 3 anos.
 7. Riscos e recomendações para os próximos 6 meses.
 8. Agente de IA e RAG: o que fazem, limites, como desligar, quem revê os resultados.
+9. Integração: para cada via, o endereço e o formato, onde vive a chave e quem a roda (e com que periodicidade), qual é o sistema-mestre de cada entidade, o que acontece quando a sincronização falha, quem vigia a pasta de erros e em quanto tempo. Referência ao contrato de dados (T12).

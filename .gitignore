@@ -5,3 +5,9 @@ rag_index.json
 __pycache__/
 *.pyc
 .venv/
+exchange/in/*
+exchange/out/*
+exchange/processed/*
+exchange/errors/*
+!exchange/*/.gitkeep
+frontend/*.db

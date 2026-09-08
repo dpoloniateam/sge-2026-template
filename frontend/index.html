@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedido de contacto</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 34rem; margin: 3rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.4rem; margin-bottom: .25rem; }
+  p.sub { margin-top: 0; opacity: .75; }
+  label { display: block; margin-top: 1rem; font-weight: 600; }
+  input, textarea { width: 100%; padding: .5rem; font: inherit; box-sizing: border-box; }
+  button { margin-top: 1.5rem; padding: .6rem 1.2rem; font: inherit; cursor: pointer; }
+  .ok, .erro { padding: .75rem 1rem; margin-bottom: 1.5rem; border-left: 4px solid; }
+  .ok { border-color: #2a7; background: #2a71; }
+  .erro { border-color: #c33; background: #c331; }
+  ul { margin: .4rem 0 0 1rem; padding: 0; }
+  footer { margin-top: 3rem; font-size: .85rem; opacity: .7; }
+</style>
+</head>
+<body>
+{{aviso}}
+<h1>Fale connosco</h1>
+<p class="sub">Deixe o seu pedido e entramos em contacto.</p>
+
+<form method="post" action="/submeter">
+  <label>Nome <input name="nome" required></label>
+  <label>Empresa <input name="empresa"></label>
+  <label>Email <input name="email" type="email" required></label>
+  <label>Telefone <input name="telefone" inputmode="numeric" placeholder="9 dígitos"></label>
+  <label>Mensagem <textarea name="mensagem" rows="4"></textarea></label>
+  <button type="submit">Enviar pedido</button>
+</form>
+
+<footer>
+  Aplicação externa de demonstração do repositório template. Os pedidos ficam na base de dados desta
+  aplicação; passam ao CRM na sincronização. Dados sintéticos apenas.
+  <a href="/submissoes">Ver o que está gravado</a>.
+</footer>
+</body>
+</html>

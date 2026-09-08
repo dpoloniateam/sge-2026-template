@@ -1,0 +1,6 @@
+referencia_externa,nome,empresa,email,telefone,mensagem,origem,criado_em
+FEIRA-2026-001,Ana Ribeiro,Padaria Ribeiro Lda,ana.ribeiro@exemplo.pt,912345678,Quer orçamento para software de facturação.,feira,2026-10-05T10:12:00
+FEIRA-2026-002,Bruno Melo,Metalomecânica Melo,bruno.melo@exemplo.pt,913456789,Interessado em gestão de stock.,feira,2026-10-05T10:31:00
+FEIRA-2026-003,Carla Nunes,,carla.nunes@exemplo.pt,,Pediu documentação por email.,feira,2026-10-05T11:02:00
+PARC-2026-014,Duarte Sousa,Sousa & Filhos,duarte.sousa@exemplo.pt,914567890,Encaminhado por parceiro.,parceiro,2026-10-06T09:40:00
+PARC-2026-015,Eva Tavares,Clínica Tavares,eva.tavares@exemplo.pt,915678901,Quer integrar marcações com facturação.,parceiro,2026-10-06T15:22:00
