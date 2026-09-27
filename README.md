@@ -36,9 +36,11 @@ No Odoo: avatar → Preferências → Segurança da conta → Nova chave API (d�
 
 ```bash
 pip install -r requirements.txt
-python scripts/smoke_test.py            # Odoo: ler, criar e apagar um lead; LLM: pergunta e embeddings
+python scripts/smoke_test.py                  # tudo: máquina, GitHub, Odoo edu e Community, Azure, modelo de IA
+python scripts/smoke_test.py --no-llm         # tudo menos o modelo de IA
+python scripts/smoke_test.py --so odoo,github # só algumas partes: maquina, github, odoo, azure, llm
 ```
-Todas as linhas devem dizer `[OK]`. Se a base edu responder com erro 403/404 na API, aponte o `.env` para a instalação Community (a API JSON-2 está garantida aí).
+Cada linha sai `[OK]`, `[ERRO]` (tem de ser resolvido), `[AVISO]` (risco ou regra da UC por cumprir) ou `[--]` (não se aplica à equipa). No fim, o script mostra o que se copia para a folha partilhada. Nenhum `[ERRO]` é a condição para a folha dizer que o teste de fumo passou. Se a base edu responder com erro 403/404 na API, aponte o `.env` para a instalação Community (a API JSON-2 está garantida aí).
 
 ## 6. Cópias de segurança e restauro (obrigatório semanalmente)
 
