@@ -1,5 +1,6 @@
 #cloud-config
-# Instala o Docker na VM e prepara o utilizador azureuser. O repositório da equipa é clonado manualmente depois do primeiro ssh.
+# Instala o Docker na VM e prepara o utilizador azureuser. O repositorio da equipa clona-se depois do primeiro ssh.
+# So ASCII neste ficheiro: o Azure estraga os acentos e o cloud-init deita o ficheiro fora (sem Docker).
 package_update: true
 packages: [git, curl, ca-certificates]
 runcmd:

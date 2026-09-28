@@ -510,6 +510,8 @@ def testar_azure():
 
         def orcamento():
             rc, out, err = correr(["az", "consumption", "budget", "list", "--resource-group", rg, "-o", "json"], timeout=60)
+            if rc != 0 and "offer" in (err + out).lower():
+                return ("--", "o Azure for Students não permite budgets: o limite é o crédito; VM desligada fora das aulas")
             if rc != 0:
                 return ("AVISO", "não foi possível ler os budgets; confirmem no portal: Cost Management → Budgets")
             b = json.loads(out or "[]")

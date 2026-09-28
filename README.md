@@ -14,7 +14,7 @@ Repositório template da UC Sistemas de Gestão Empresarial (CTeSP ICO, ISCA-UA)
 
 ## 2. Escolher o ambiente (até 25 Set)
 
-- **a) Azure (recomendado se a activação correr bem)**: um elemento «anfitrião» cria a VM com `scripts/azure_vm.sh`; os outros dois recebem acesso *Contributor* ao grupo de recursos (Access control (IAM)). A VM desliga-se sozinha às 20:00; ligue-a no portal ou com `az vm start` antes das aulas. Crie um *budget* de 30 USD com alertas a 50 % e 80 % e registe o saldo todas as semanas. No Azure OpenAI (Foundry) crie duas implementações: `gpt-5-nano` para chat e `text-embedding-3-small` para o RAG; os nomes vão para `LLM_MODEL` e `EMBED_MODEL`.
+- **a) Azure (recomendado se a activação correr bem)**: um elemento «anfitrião» cria a VM com `scripts/azure_vm.sh`; os outros dois recebem acesso *Contributor* ao grupo de recursos (Access control (IAM)). A VM desliga-se sozinha às 20:00; ligue-a no portal ou com `az vm start` antes das aulas. O Azure for Students não permite *budgets*: o limite é o crédito — registe o saldo todas as semanas e desligue a VM (`az vm deallocate`) fora das aulas. No Azure OpenAI (Foundry) crie duas implementações: `gpt-5-nano` para chat e `text-embedding-3-small` para o RAG; os nomes vão para `LLM_MODEL` e `EMBED_MODEL`.
 - **b) GitHub Codespaces**: abra o repositório em «Code → Codespaces → Create codespace». O `.devcontainer` instala o Docker e arranca o Odoo. Limite: 90 h/mês numa máquina de 2 cores; o codespace pára ao fim de 30 min sem uso e é apagado após 30 dias parado — faça `./scripts/backup.sh` e guarde o `.dump` no repositório (se tiver menos de 100 MB) todas as semanas.
 - **c) Local (último recurso)**: Docker Desktop no portátil (8 GB de RAM) e os mesmos comandos.
 
@@ -88,7 +88,7 @@ Os doze templates das entregas estão em [`docs/templates/`](docs/templates/): d
 
 1. Só dados sintéticos: nenhum nome, email ou telefone de pessoas reais, nem no Odoo nem nos prompts (Referencial IA da UA, 3.5).
 2. Segredos só no `.env`; se uma chave for exposta, revogue-a no mesmo dia.
-3. Custos: VM desligada fora das aulas; budget com alertas; modelos pequenos (gpt-5-nano, gemini flash).
+3. Custos: VM desligada fora das aulas; saldo do crédito registado todas as semanas; modelos pequenos (gpt-5-nano, gemini flash).
 4. Uso de IA declarado em M1, M3 e no portefólio: ferramenta, tarefas, o que foi aceite ou rejeitado e como foi verificado.
 5. Cópia de segurança semanal guardada fora da VM.
 

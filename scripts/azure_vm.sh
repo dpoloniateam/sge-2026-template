@@ -14,4 +14,4 @@ az vm open-port -g "$RG" -n "$VM" --port 8000 --priority 1020 -o none   # aplica
 az vm auto-shutdown -g "$RG" -n "$VM" --time 1900 --email "$EMAIL" -o none
 IP=$(az vm show -d -g "$RG" -n "$VM" --query publicIps -o tsv)
 echo "VM criada. Ligue-se com: ssh azureuser@$IP   | Odoo em http://$IP:8069 e aplicação externa em http://$IP:8000 depois de: git clone <repo> && cd <repo> && ./scripts/init_db.sh"
-echo "A seguir, no portal: Cost Management > Budgets > novo budget de 30 USD no grupo $RG com alertas a 50 % e 80 %; partilhe o grupo com a equipa (Access control (IAM) > Contributor)."
+echo "A seguir, no portal: partilhe o grupo $RG com a equipa (Access control (IAM) > Contributor). O Azure for Students nao permite budgets: o limite e o credito; desliguem a VM fora das aulas (az vm deallocate) e registem o saldo na folha."
