@@ -1,6 +1,6 @@
 {
   "name": "SGE 2026-27 — Odoo + agente",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
   "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
   "hostRequirements": { "cpus": 2, "memory": "8gb" },
   "forwardPorts": [8069, 8000],
