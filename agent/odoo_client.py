@@ -58,7 +58,7 @@ class OdooClient:
         if "error" in data:
             err = data["error"]
             raise OdooError(f"JSON-RPC {service}.{method}: {err.get('data', {}).get('message') or err.get('message')}")
-        return data["result"]
+        return data.get("result")          # métodos que não devolvem nada vêm sem «result»
 
     def _uid_(self):
         if self._uid is None:
