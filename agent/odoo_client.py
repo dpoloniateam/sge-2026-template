@@ -12,7 +12,7 @@ Exemplo:
     odoo = OdooClient()
     for p in odoo.search_read("res.partner", [["is_company", "=", True]], ["name", "email"], limit=5):
         print(p)
-    lead_id = odoo.create("crm.lead", {"name": "Pedido de orçamento — Loja X", "contact_name": "Ana", "email_from": "ana@exemplo.pt"})
+    lead_id = odoo.create("crm.lead", {"name": "Pedido de orçamento — Loja X", "contact_name": "Ana", "email_from": "ana@isca-ua-sge-2027.pt"})
 """
 import os
 import requests

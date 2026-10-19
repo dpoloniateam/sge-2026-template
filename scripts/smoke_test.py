@@ -336,7 +336,7 @@ def testar_um_odoo(url, db, user, chave, edu, prefixo, transporte=None):
     step("Ler contactos", lambda: [p["name"] for p in odoo.search_read("res.partner", [], ["name"], limit=3)])
 
     def lead():
-        lid = odoo.create("crm.lead", {"name": "SMOKE TEST — apagar", "contact_name": "Teste", "email_from": "teste@exemplo.pt"})
+        lid = odoo.create("crm.lead", {"name": "SMOKE TEST — apagar", "contact_name": "Teste", "email_from": "teste@isca-ua-sge-2027.pt"})
         odoo.unlink("crm.lead", [lid])
         return f"lead {lid} criado e apagado"
     escreveu = step("Criar e apagar um lead (app CRM instalada?)", lead)
