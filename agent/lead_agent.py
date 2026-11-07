@@ -36,6 +36,19 @@ TOOLS = [{
 SYSTEM = ("És um analista comercial de uma PME. Qualificas leads do CRM Odoo com base nos dados fornecidos. "
           "Critérios: receita esperada, completude dos contactos, adequação ao negócio, urgência expressa na descrição. "
           "Para cada lead chama a ferramenta qualify_lead exactamente uma vez. Não inventes dados.")
+LOTE = 5  # leads por pedido ao modelo: com mais, o modelo tende a parar a meio
+
+
+def pedir(leads):
+    """Uma ronda: envia os leads ao modelo e devolve as qualificações que ele pediu (chamadas de ferramenta)."""
+    messages = [{"role": "system", "content": SYSTEM},
+                {"role": "user", "content": f"Qualifica estes {len(leads)} leads (uma chamada de qualify_lead por lead):\n" + json.dumps(leads, ensure_ascii=False, default=str)}]
+    resp = llm.chat(messages, tools=TOOLS, max_tokens=600 + 300 * len(leads))  # uma chamada de ferramenta por lead
+    calls = resp.choices[0].message.tool_calls or []
+    if not calls:
+        print(f"O modelo não chamou a ferramenta (finish_reason={resp.choices[0].finish_reason}). Resposta:",
+              resp.choices[0].message.content)
+    return [json.loads(c.function.arguments) for c in calls if c.function.name == "qualify_lead"]
 
 
 def run(limit, apply):
@@ -44,19 +57,22 @@ def run(limit, apply):
     if not leads:
         print("Sem leads por qualificar (prioridade 0)."); return
     slim = [{k: (v[1] if isinstance(v, list) and len(v) == 2 else v) for k, v in l.items()} for l in leads]
-    messages = [{"role": "system", "content": SYSTEM},
-                {"role": "user", "content": "Qualifica estes leads:\n" + json.dumps(slim, ensure_ascii=False, default=str)}]
-    resp = llm.chat(messages, tools=TOOLS)
-    calls = resp.choices[0].message.tool_calls or []
-    if not calls:
-        print(f"O modelo não chamou a ferramenta (finish_reason={resp.choices[0].finish_reason}; se for 'length', aumente max_tokens). Resposta:",
-              resp.choices[0].message.content); return
-    for c in calls:
-        a = json.loads(c.function.arguments)
-        lead = next((l for l in leads if l["id"] == a["lead_id"]), None)
-        name = lead["name"] if lead else "?"
-        print(f"- lead {a['lead_id']} «{name}»: prioridade {a['priority']} — {a['reason']} → {a['next_step']}")
-        if apply and lead:
+    feitas = {}
+    for ronda in range(2 * len(slim) // LOTE + 2):  # o modelo às vezes qualifica só uma parte: volta a pedir os que faltam
+        falta = [l for l in slim if l["id"] not in feitas][:LOTE]
+        if not falta:
+            break
+        ids = {l["id"] for l in falta}
+        for a in pedir(falta):
+            if a.get("lead_id") in ids:
+                feitas.setdefault(a["lead_id"], a)
+    for lead in leads:
+        a = feitas.get(lead["id"])
+        if not a:
+            print(f"- lead {lead['id']} «{lead['name']}»: sem qualificação (o modelo não respondeu); corra outra vez")
+            continue
+        print(f"- lead {a['lead_id']} «{lead['name']}»: prioridade {a['priority']} — {a['reason']} → {a['next_step']}")
+        if apply:
             odoo.write("crm.lead", [a["lead_id"]], {"priority": str(max(0, min(3, int(a["priority"]))))})
             odoo.message_post("crm.lead", a["lead_id"],
                               f"<b>Qualificação por agente de IA ({llm.PROVIDER}/{llm.model()})</b><br/>"

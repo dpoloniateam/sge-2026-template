@@ -59,6 +59,10 @@ def chat(messages, tools=None, max_tokens=1200):
         kw["reasoning_effort"] = os.environ.get("REASONING_EFFORT", "low")
     elif PROVIDER == "azure":
         kw["max_completion_tokens"] = max_tokens
+    elif PROVIDER == "gemini":
+        # o Gemini 3.x pensa antes de responder e o pensamento conta para o limite: folga e esforço baixo (7 nov 2026)
+        kw["max_tokens"] = max_tokens * 4
+        kw["reasoning_effort"] = os.environ.get("REASONING_EFFORT", "low")
     else:
         kw["max_tokens"] = max_tokens
     try:
