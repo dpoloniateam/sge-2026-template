@@ -112,8 +112,16 @@ class OdooClient:
         return self.call(model, "unlink", ids=ids)
 
     def message_post(self, model, res_id, body):
-        """Publica uma nota no chatter de um registo (visível na interface do Odoo)."""
-        return self.call(model, "message_post", ids=[res_id], body=body)
+        """Publica uma nota no chatter de um registo (visível na interface do Odoo). O body é HTML.
+
+        Pela API, o Odoo 17+ escapa o HTML (as etiquetas apareciam como texto): body_is_html=True evita-o (7 nov 2026).
+        """
+        try:
+            return self.call(model, "message_post", ids=[res_id], body=body, body_is_html=True)
+        except Exception as e:  # Odoo mais antigo, sem body_is_html
+            if "body_is_html" not in str(e):
+                raise
+            return self.call(model, "message_post", ids=[res_id], body=body)
 
     def whoami(self):
         """Devolve o utilizador da chave API (teste de ligação)."""
